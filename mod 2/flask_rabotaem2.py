@@ -3,6 +3,20 @@ from datetime import datetime
 from flask import Flask
 
 app = Flask(__name__)
+# task 3
+def decrypt(stro):
+    res = []
+    for el_i in stro:
+        res.append(el_i)
+        if len(res) > 2 and (res[-1],res[-2])==(".","."):
+            res.pop()
+            res.pop()
+            if res:
+                res.pop()
+                
+    return "".join(el_i for el_i in res if el_i != ".")
+    
+
 
 # task 4
 
