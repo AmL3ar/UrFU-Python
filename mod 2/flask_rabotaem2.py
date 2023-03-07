@@ -16,8 +16,6 @@ def decrypt(stro):
                 
     return "".join(el_i for el_i in res if el_i != ".")
     
-
-
 # task 4
 
 week = ("понедельника","вторника","среды","четверга","пятницы","субботы","воскресенья")
