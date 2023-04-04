@@ -1,4 +1,5 @@
 import datetime
+import string
 import random
 from flask import Flask
 
@@ -36,7 +37,8 @@ file_name.close()
 
 @app.route('/get_random_word')
 def rnd_word(): 
-    rand_word = words[random.randint(0,len(words))]       
+    rand_word = words[random.randint(0,len(words))]
+    rand_word = rand_word.translate(str.maketrans("","",string.punctuation))
     return f"Случайное слово из произведения: {rand_word}"
    
 
