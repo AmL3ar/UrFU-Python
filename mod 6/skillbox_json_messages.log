@@ -1,0 +1,11 @@
+{"time": "22:47:54", "level": "INFO", "message": "Попытка войти"}
+{"time": "22:47:54", "level": "INFO", "message": "У Вас есть 3 попытки."}
+{"time": "22:48:04", "level": "WARNING", "message": "Содержит дверь слово дверь"}
+{"time": "22:48:04", "level": "ERROR", "message": "Войти не удалось, пароль неверный"}
+{"time": "22:48:08", "level": "INFO", "message": "Попытка войти"}
+{"time": "22:48:08", "level": "INFO", "message": "У Вас есть 3 попытки."}
+{"time": "22:48:12", "level": "ERROR", "message": "Некорректный символ: "}
+{"time": "22:48:15", "level": "WARNING", "message": "дверь слово"}
+{"time": "22:48:18", "level": "ERROR", "message": "Войти не удалось, пароль неверный"}
+{"time": "05:05:18", "level": "CRITICAL", "message": "Войти не удалось, пароль неверный"}
+{"time": "05:05:18", "level": "CRITICAL", "message": "Войти не dog, пароль неверный"}
