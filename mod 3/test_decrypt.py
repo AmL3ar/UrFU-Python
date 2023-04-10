@@ -14,4 +14,3 @@ class TestDecrypt(unittest.TestCase):
         self.assertTrue(decrypt("1..2.3") == "23")
         self.assertTrue(decrypt(".") == "")
         self.assertTrue(decrypt("1.......................") == "")
-        
