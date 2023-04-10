@@ -40,10 +40,9 @@ def good_day(name):
 # task 5
 
 @app.route('/max_number/<path:numbers>')
-def max_number(numbers): 
-    num_array = numbers.split("/")
-    maximum = max(num_array)
-    return f"Максимальное число: {maximum}"
+def max_number(numbers):
+    num_array = (int(i) for i in numbers.split("/"))
+    return f"Максимальное число: {max(num_array)}"
 
 # task 6
 
