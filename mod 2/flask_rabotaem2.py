@@ -3,6 +3,18 @@ from datetime import datetime
 from flask import Flask
 
 app = Flask(__name__)
+# task 1
+@app.route('/get_summary_rss/<string:path_to_file>')
+def get_summary_rss(path_to_file):
+    with open(path_to_file, 'r') as f:
+        lines = f.readlines()[1:]
+        summ = 0
+        for line in lines:
+            column = line.split()
+            summ += int(column[5])
+        return f"{summ} B"
+        
+
 # task 3
 def decrypt(stro):
     res = []
@@ -28,10 +40,9 @@ def good_day(name):
 # task 5
 
 @app.route('/max_number/<path:numbers>')
-def max_number(numbers): 
-    num_array = numbers.split("/")
-    maximum = max(num_array)
-    return f"Максимальное число: {maximum}"
+def max_number(numbers):
+    num_array = (int(i) for i in numbers.split("/"))
+    return f"Максимальное число: {max(num_array)}"
 
 # task 6
 

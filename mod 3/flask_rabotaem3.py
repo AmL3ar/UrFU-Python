@@ -1,18 +1,21 @@
+import os
 from datetime import datetime
 from flask import Flask
 
 app = Flask(__name__)
-
 # task 1
+@app.route('/get_summary_rss/<string:path_to_file>')
+def get_summary_rss(path_to_file):
+    with open(path_to_file, 'r') as f:
+        lines = f.readlines()[1:]
+        summ = 0
+        for line in lines:
+            column = line.split()
+            summ += int(column[5])
+        return f"{summ} B"
+        
 
-week = ("понедельника","вторника","среды","четверга","пятницы","субботы","воскресенья")
-
-@app.route('/hello-world/<name>')
-def good_day(name):
-    weekday = datetime.today().weekday()
-    return f"Привет, {name}. Хорош(-ей/-его) {week[weekday]}"
-
-# task 2
+# task 3
 def decrypt(stro):
     res = []
     for el_i in stro:
@@ -24,8 +27,35 @@ def decrypt(stro):
                 res.pop()
                 
     return "".join(el_i for el_i in res if el_i != ".")
+    
+# task 4
 
-# task 3
+week = ("понедельника","вторника","среды","четверга","пятницы","субботы","воскресенья")
+
+@app.route('/hello-world/<name>')
+def good_day(name):
+    weekday = datetime.today().weekday()
+    return f"Привет, {name}. Хорош(-ей/-его) {week[weekday]}"
+
+# task 5
+
+@app.route('/max_number/<path:numbers>')
+def max_number(numbers):
+    num_array = (int(i) for i in numbers.split("/"))
+    return f"Максимальное число: {max(num_array)}"
+
+# task 6
+
+@app.route('/preview/<int:number>/<path:path_to_file>')
+def preview(number, path_to_file):
+    file_name = path_to_file.split("/")[-1]
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    file = os.path.join(base_dir,file_name)
+    with open(file,encoding='utf-8') as f:        
+        size = f.read(number)
+    return f"{file} {number} <br> {size}"
+
+# task 7
 
 tracker = dict()
 
@@ -49,8 +79,6 @@ def calculate_years(year):
 @app.route('/calculate/<string:year>/<string:month>')
 def calculate_years_month(year,month):
     return f"Ваши траты {tracker[year][month]}"
-
-
 
 
 if __name__=="__main__":
